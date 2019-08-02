@@ -54,51 +54,61 @@ def edit_u1_u2():
 
 
 def delete_u1():
-    # удалить пользователя с first_name u1 (функция delete_u1).
-
+    """Удалить пользователя с first_name u1 (функция delete_u1)."""
     pass
 
 
 def unsubscribe_u2_from_blogs():
-    # отписать пользователя с first_name u2 от блогов (функция unsubscribe_u2_from_blogs).
+    """Отписать пользователя с first_name u2 от блогов (функция unsubscribe_u2_from_blogs)."""
     pass
 
 
 def get_topic_created_grated():
+    """Найти топики у которых дата создания больше 2018-01-01"""
     pass
 
 
 def get_topic_title_ended():
+    """Найти топик у которого title заканчивается на content"""
     pass
 
 
 def get_user_with_limit():
+    """Получить 2х первых пользователей (сортировка в обратном порядке по id)"""
     pass
 
 
 def get_topic_count():
+    """Получить количество топиков в каждом блоге, назвать поле topic_count,
+    отсортировать по topic_count по возрастанию"""
     pass
 
 
 def get_avg_topic_count():
+    """Получить среднее количество топиков в блоге"""
     pass
 
 
 def get_blog_that_have_more_than_one_topic():
+    """Найти блоги, в которых топиков больше одного"""
     pass
 
 
 def get_topic_by_u1():
+    """Получить все топики автора с first_name u1"""
     pass
 
 
 def get_user_that_dont_have_blog():
+    """Найти пользователей, у которых нет блогов, отсортировать по возрастанию id"""
     pass
 
 
 def get_topic_that_like_all_users():
+    """Найти топик, который лайкнули все пользователи"""
     pass
 
 
 def get_topic_that_dont_have_like():
+    """Найти топики, у которы нет лайков"""
     pass
