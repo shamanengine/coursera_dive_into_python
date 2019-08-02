@@ -3,11 +3,24 @@ from datetime import datetime
 from django.db.models import Q, Count, Avg
 from pytz import UTC
 
-from db.models import User, Blog, Topic
+from grader.db.models import User, Blog, Topic
 
 
 def create():
-    pass
+    """
+    Создать пользователя first_name = u1, last_name = u1.
+    Создать пользователя first_name = u2, last_name = u2.
+    Создать пользователя first_name = u3, last_name = u3.
+    Создать блог title = blog1, author = u1.
+    Создать блог title = blog2, author = u1.
+    Подписать пользователей u1 u2 на blog1, u2 на blog2.
+    Создать топик title = topic1, blog = blog1, author = u1.
+    Создать топик title = topic2_content, blog = blog1, author = u3, created = 2017-01-01.
+    Лайкнуть topic1 пользователями u1, u2, u3.
+    """
+    user1 = User()
+    user1.first_name, user1.last_name = "u1", "u1"
+    user1.save()
 
 
 def edit_all():
@@ -64,3 +77,7 @@ def get_topic_that_like_all_users():
 
 def get_topic_that_dont_have_like():
     pass
+
+
+if __name__ == "__main__":
+    create()
