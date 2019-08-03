@@ -4,6 +4,7 @@ from django.db.models import Q, Count, Avg
 from pytz import UTC
 
 from db.models import User, Blog, Topic
+# from grader.db.models import User, Blog, Topic
 
 
 def create():
@@ -18,8 +19,7 @@ def create():
     user2.save()
 
     # Создать пользователя first_name = u3, last_name = u3.
-    user3 = User()
-    user3.first_name, user3.last_name = "u3", "u3"
+    user3 = User(first_name="u3", last_name="u3")
     user3.save()
 
     # Создать блог title = blog1, author = u1.
@@ -44,23 +44,34 @@ def create():
 
 
 def edit_all():
-    """Поменять first_name на uu1 у всех пользователей (функция edit_all)."""
-    pass
+    """Поменять first_name на uu1 у всех пользователей"""
+    all_users = User.objects.all()
+    for user in all_users:
+        user.first_name = "uu1"
+        user.save()
+
+    return all_users.query()
 
 
 def edit_u1_u2():
-    """Поменять first_name на uu1 у пользователей, у которых first_name u1 или u2 (функция edit_u1_u2)."""
-    pass
+    """Поменять first_name на uu1 у пользователей, у которых first_name u1 или u2"""
+    users_with_first_name_u1_or_u2 = User.objects.filter(Q(first_name='u1') | Q(first_name='u2'))
+    for user in users_with_first_name_u1_or_u2:
+        user.first_name = 'uu1'
+        user.save()
 
 
 def delete_u1():
     """Удалить пользователя с first_name u1 (функция delete_u1)."""
-    pass
+    User.objects.filter(first_name='u1').delete()
 
 
 def unsubscribe_u2_from_blogs():
-    """Отписать пользователя с first_name u2 от блогов (функция unsubscribe_u2_from_blogs)."""
-    pass
+    """Отписать пользователя с first_name u2 от блогов"""
+    Blog.objects.filter()
+    users = User.objects.filter(first_name="u2")
+    for user in users:
+        user.blog_set.all().delete()
 
 
 def get_topic_created_grated():
