@@ -3,8 +3,8 @@ from datetime import datetime
 from django.db.models import Q, Count, Avg
 from pytz import UTC
 
-from db.models import User, Blog, Topic
-# from grader.db.models import User, Blog, Topic
+# from db.models import User, Blog, Topic
+from grader.db.models import User, Blog, Topic
 
 
 def create():
@@ -50,7 +50,7 @@ def edit_all():
         user.first_name = "uu1"
         user.save()
 
-    return all_users.query()
+    return all_users.query
 
 
 def edit_u1_u2():
@@ -60,12 +60,16 @@ def edit_u1_u2():
         user.first_name = 'uu1'
         user.save()
 
+    return users_with_first_name_u1_or_u2.query
+
 
 def delete_u1():
-    """Удалить пользователя с first_name u1 (функция delete_u1)."""
-    User.objects.filter(first_name='u1').delete()
+    """Удалить пользователя с first_name u1"""
+    deleted = User.objects.filter(first_name='u1').delete()
+    return deleted
 
 
+# ???
 def unsubscribe_u2_from_blogs():
     """Отписать пользователя с first_name u2 от блогов"""
     Blog.objects.filter()
@@ -76,7 +80,10 @@ def unsubscribe_u2_from_blogs():
 
 def get_topic_created_grated():
     """Найти топики у которых дата создания больше 2018-01-01"""
-    pass
+    utc_dt = datetime(2018, 1, 1, 0, 0, 0, tzinfo=UTC)
+    topics = Topic.objects.filter(created__gte=utc_dt)
+    topics = Topic.objects.filter()
+    return topics
 
 
 def get_topic_title_ended():

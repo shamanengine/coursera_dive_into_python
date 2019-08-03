@@ -16,22 +16,19 @@ def create(request):
 @require_GET
 def edit_all(request):
     """Поменять first_name на uu1 у всех пользователей"""
-    html = query.edit_all()
-    return HttpResponse(html)
+    return HttpResponse(query.edit_all())
 
 
 @require_GET
 def edit_u1_u2(request):
     """Поменять first_name на uu1 у пользователей, у которых first_name u1 или u2"""
-    query.edit_u1_u2()
-    return HttpResponse()
+    return HttpResponse(query.edit_u1_u2())
 
 
 @require_GET
 def delete_u1(request):
     """Удалить пользователя с first_name u1"""
-    query.delete_u1()
-    return HttpResponse()
+    return HttpResponse(query.delete_u1())
 
 
 @require_GET
@@ -44,8 +41,7 @@ def unsubscribe_u2_from_blogs(request):
 @require_GET
 def get_topic_created_grated(request):
     """Найти топики у которых дата создания больше 2018-01-01"""
-    query.get_topic_created_grated()
-    return HttpResponse()
+    return HttpResponse(query.get_topic_created_grated())
 
 
 @require_GET
